@@ -339,3 +339,6 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,visualstudiocode,pycharm
+
+# SQLite database file
+src/events.db
