@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  canvas-todoist:
+    build: .
+    container_name: canvas-todoist-sync
+    restart: unless-stopped
+    volumes:
+      - app-data:/app/src
+      - ./src/config.py:/app/src/config.py:ro # Mount config file as read-only
+    environment:
+      - TZ='America/Chicago'
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 5m
+      timeout: 30s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  app-data:
+    name: canvas-todoist-data
