@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   canvas-todoist:
-    build: .
+    build:
+      context: .
+      network: host # Fixes issue with using Tailscale on server running Docker
     container_name: canvas-todoist-sync
     restart: unless-stopped
     volumes:
