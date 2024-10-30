@@ -10,6 +10,8 @@ services:
     volumes:
       - app-data:/app/src
       - ./src/config.py:/app/src/config.py:ro # Mount config file as read-only
+    env_file:
+      - .env
     environment:
       - TZ='America/Chicago'
     healthcheck:
