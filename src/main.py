@@ -1,10 +1,10 @@
 import time
 import logging
 
-from ics_watcher import ICSWatcher
-from event_processor import EventProcessor
-from todoist_creator import TodoistCreator
-from config import Config
+from .ics_watcher import ICSWatcher
+from .event_processor import EventProcessor
+from .todoist_creator import TodoistCreator
+from .config import Config
 
 
 def main():

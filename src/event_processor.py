@@ -1,8 +1,8 @@
 import re
 import logging
 
-from config import Config
-from database import Database
+from .config import Config
+from .database import Database
 
 
 class EventProcessor:

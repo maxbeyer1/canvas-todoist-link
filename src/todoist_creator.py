@@ -1,6 +1,6 @@
 from todoist_api_python.api import TodoistAPI
 
-from config import Config
+from .config import Config
 
 
 class TodoistCreator:

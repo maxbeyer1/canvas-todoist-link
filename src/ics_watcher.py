@@ -2,7 +2,7 @@ from datetime import datetime
 import requests
 from icalendar import Calendar
 
-from config import Config
+from .config import Config
 
 
 class ICSWatcher:
