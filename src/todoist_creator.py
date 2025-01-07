@@ -7,20 +7,23 @@ class TodoistCreator:
     def __init__(self, api_token):
         self.api = TodoistAPI(api_token)
         self.projects = {}
-        self.course_project_mapping = Config.COURSE_PROJECT_MAPPING
+        self.config = Config()
         self.fetch_projects()
 
     def fetch_projects(self):
         try:
             all_projects = self.api.get_projects()
+            course_project_mapping = self.config.COURSE_PROJECT_MAPPING
+
             for project in all_projects:
-                if project.name in self.course_project_mapping.values():
+                if project.name in course_project_mapping.values():
                     self.projects[project.name] = project.id
         except Exception as error:
             print(f"Error fetching Todoist projects: {error}")
 
     def get_project_id(self, course_number):
-        project_name = self.course_project_mapping.get(course_number)
+        project_name = self.config.get_project_name(course_number)
+
         return self.projects.get(project_name)
 
     def create_task(self, title, due, course_number):

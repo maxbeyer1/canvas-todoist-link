@@ -1,4 +1,3 @@
-from datetime import datetime
 import requests
 from icalendar import Calendar
 
@@ -7,11 +6,11 @@ from .config import Config
 
 class ICSWatcher:
     def __init__(self):
-        self.ics_url = Config.CANVAS_ICS_URL
+        self.config = Config()
 
     def fetch_ics_feed(self):
         try:
-            response = requests.get(self.ics_url)
+            response = requests.get(self.config.CANVAS_ICS_URL, timeout=10)
             response.raise_for_status()  # Raise an exception for bad status codes
             return response.text
         except requests.RequestException as e:

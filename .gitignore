@@ -342,3 +342,9 @@ pyrightconfig.json
 
 # SQLite database file
 src/events.db
+
+# Courses config
+courses.yml
+
+# Repomix output
+repomix-output.*

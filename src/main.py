@@ -10,9 +10,10 @@ from .config import Config
 def main():
     logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s - %(levelname)s - %(message)s')
+    config = Config()
     watcher = ICSWatcher()
     processor = EventProcessor()
-    todoist = TodoistCreator(Config.TODOIST_API_TOKEN)
+    todoist = TodoistCreator(config.TODOIST_API_TOKEN)
 
     while True:
         try:
@@ -45,14 +46,14 @@ def main():
                         f"  - Marked assignment {assignment['uid']} as failed to sync")
 
             print(f"\nWaiting {
-                  Config.FETCH_INTERVAL} seconds before next fetch...")
-            time.sleep(Config.FETCH_INTERVAL)
+                  config.FETCH_INTERVAL} seconds before next fetch...")
+            time.sleep(config.FETCH_INTERVAL)
 
         except Exception as e:
             logging.error("An error occurred in the main loop: %s", str(e))
             print(f"An error occurred. Check the log for details. Retrying in {
-                  Config.FETCH_INTERVAL} seconds...")
-            time.sleep(Config.FETCH_INTERVAL)
+                  config.FETCH_INTERVAL} seconds...")
+            time.sleep(config.FETCH_INTERVAL)
 
 
 if __name__ == "__main__":

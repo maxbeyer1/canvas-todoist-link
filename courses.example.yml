@@ -1,0 +1,18 @@
+# EXAMPLE CONFIG
+# Copy to courses.yml and configure as needed
+
+# Course to project mapping
+# Format: Canvas course number: Todoist project name
+courses:
+  CCS_2024FA_MATH_230-1_ALL_SECTIONS: Math 230-1
+  2024FA_ENGLISH_105-0_SEC20: English 105-0
+  2024FA_ART_HIST_225-0_SEC1: Art History 225-0
+  2024FA_COMP_SCI_213-0_SEC1: Comp Sci 213-0
+
+# Optional: Default project for unmapped courses
+default_project: Uncategorized Assignments
+
+# Optional: Configuration for course number patterns
+course_patterns:
+  - pattern: (?:CCS_)?\d{4}[A-Z]{2,3}_[A-Z_]+_\d+(?:-\d+)?(?:_SEC\d+|_ALL_SECTIONS)?
+    description: Standard Canvas course number format

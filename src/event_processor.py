@@ -1,7 +1,6 @@
 import re
 import logging
 
-from .config import Config
 from .database import Database
 
 
@@ -34,7 +33,7 @@ class EventProcessor:
         return 'assignment' in event['uid'].lower()
 
     def extract_course_number(self, title):
-        pattern = r'\[((?:CCS_)?\d{4}[A-Z]{2,3}_[A-Z_]+_\d+(?:-\d+)?(?:_SEC\d+|_ALL_SECTIONS)?)\]'
+        pattern = r'\[((?:CCS_)?\d{4}[A-Z]{2,3}_[A-Z_]+_\d+(?:-\d+)?(?:_SEC\d+(?:_AND_SEC\d+)?|_ALL_SECTIONS)?)\]'
         match = re.search(pattern, title)
         if match:
             return match.group(1)

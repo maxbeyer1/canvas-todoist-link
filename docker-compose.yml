@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     volumes:
       - app-data:/app/src
-      - ./src/config.py:/app/src/config.py:ro # Mount config file as read-only
+      - ./courses.yml:/app/courses.yml:ro # Mount courses.yml as read-only
     env_file:
       - .env
     environment:
