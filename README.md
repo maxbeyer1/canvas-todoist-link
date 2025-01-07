@@ -67,6 +67,12 @@ courses:
   2025WI_COMP_SCI_213-0_SEC1_AND_SEC2: Comp Sci 213
 ```
 
+6. Run the application:
+
+```bash
+python main.py
+```
+
 ### Docker Installation
 
 1. Build the Docker image:
