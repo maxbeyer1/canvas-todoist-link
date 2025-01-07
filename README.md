@@ -11,7 +11,7 @@ A Python application that synchronizes Canvas assignments with Todoist tasks. Th
 - **Smart Course Mapping**: Automatically maps Canvas courses to Todoist projects
 - **Persistent Storage**: SQLite database to track sync status and prevent duplicates
 - **Robust Error Handling**: Comprehensive logging and error recovery mechanisms
-- **Flexible Configuration**: Environment-based configuration for easy deployment
+- **Flexible Configuration**: Environment-based configuration and YAML course mapping
 
 ## 🛠 Technology Stack
 
@@ -52,12 +52,19 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Create a `.env` file in the project root:
+4. Create a `.env` file in the project root (or copy the provided `.env.example`):
 
 ```env
 CANVAS_ICS_URL=your_canvas_ics_url
 TODOIST_API_TOKEN=your_todoist_api_token
 FETCH_INTERVAL=3600  # Optional: defaults to 1 hour
+```
+
+5. Create a `courses.yml` file by copying the provided `courses.example.yml` and mapping Canvas courses to Todoist projects. The Canvas course number can be found on the Canvas dashboard or in titles of events in the ICS feed. The Todoist project is the plaintext name of the project in Todoist. Here is an example:
+
+```yaml
+courses:
+  2025WI_COMP_SCI_213-0_SEC1_AND_SEC2: Comp Sci 213
 ```
 
 ### Docker Installation
@@ -78,7 +85,7 @@ docker run -d \
   canvas-todoist-sync
 ```
 
-#### With Docker-Compose
+#### With Docker-Compose (Recommended)
 
 1. Build the container:
 
